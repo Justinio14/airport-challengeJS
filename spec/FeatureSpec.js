@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Feature Test:', function() {
+describe ('Feature Test:', function() {
     var plane;
     var airport;
 
@@ -11,7 +11,7 @@ describe('Feature Test:', function() {
 
     describe('under normal conditions', function(){
       beforeEach(function(){
-        spyOn(Math, 'random').and.returnValue(0);
+        spyOn(Math,'random').and.returnValue(0);
       });
 
     it('planes can be instructed to land at an airport', function() {
@@ -31,7 +31,7 @@ describe('Feature Test:', function() {
     it('blocks takeoff when weather is stormy', function(){
       spyOn(Math,'random').and.returnValue(0);
       plane.land(airport)
-      spyOn(airport._weather, 'isStormy').and.returnValue(true);
+      spyOn(airport._weather,'isStormy').and.returnValue(true);
       expect(function(){ plane.takeoff();}).toThrowError('cannot takeoff during storm');
       expect(airport.planes()).toContain(plane);
     });
